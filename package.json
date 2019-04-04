@@ -3,18 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/firestore": "^1.1.2",
     "@types/jest": "24.0.11",
     "@types/node": "11.13.0",
     "@types/react": "16.8.12",
     "@types/react-dom": "16.8.3",
+    "firebase": "^5.9.2",
+    "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
     "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "sw-precache": "^5.2.1",
     "typescript": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
