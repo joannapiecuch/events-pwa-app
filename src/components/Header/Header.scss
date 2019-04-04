@@ -1,0 +1,18 @@
+@import "../../styles/variables";
+
+.header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+   svg {
+      font-size: 25px;
+    }
+}
+
+.menu__list {
+  position: absolute;
+
+}
+
