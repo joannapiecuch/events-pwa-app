@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+
+.events {
+  background-color: $color-background;
+  height: calc(100vh - 40px);
+
+  &__list {
+    padding: 20px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
