@@ -1,44 +1,35 @@
 import React, { Component } from 'react';
 import {Form, Field} from 'react-final-form';
+import Button from '../../components/Button/Button';
 
-interface IProps {
-	event: any;
-	onSubmit: string;
+export interface IFormProps {
+	error?: string;
+	initialValues?: any;
 }
 
-class AddEvent extends Component<IProps> {
-	handleSubmit() {
-
-	}
+class AddEvent extends Component<IFormProps> {
+	handleSubmit = () => {
+		console.log('Submit')
+	};
 
 	render() {
-		const {onSubmit} = this.props;
-
 		return (
 			<div className="event">
 				<Form
-					onSubmit={onSubmit}
-					render={({ handleSubmit, form }) => (
+					onSubmit={this.handleSubmit}
+					render={({ handleSubmit, form, submitting, pristine, values }) => (
 						<form onSubmit={handleSubmit}>
 							<div className="form-group">
 								<Field
 									name="title"
 									component="input"
 									type="text"
-									placeholder="Tytuł posta"
+									placeholder="Tytuł"
 									className="form-control"
 								/>
 							</div>
-							<div className="form-group">
-								<Field
-									name="content"
-									component="textarea"
-									type="text"
-									placeholder="Treść posta"
-									className="form-control"
-								/>
-							</div>
-							{/*<button type="submit" className="btn btn-primary" disabled={submitting || pristine}>Edytuj post</button>*/}
+							<Button type={'black'} text={'Submit'}/>
+							<button type="submit" className="btn btn-primary" disabled={submitting || pristine}>Dodaj wydarzenie</button>
 						</form>
 					)}
 				/>
