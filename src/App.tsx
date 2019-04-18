@@ -10,14 +10,15 @@ library.add(faBars);
 library.add(faSearch);
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <EventsList />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<Header/>
+				<AddEvent/>
+				<EventsList events={{}}/>
+			</div>
+		);
+	}
 }
 
 export default App;

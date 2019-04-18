@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import {Form, Field} from 'react-final-form';
+import { Form, Field } from 'react-final-form';
+import { firebase } from '../../firebase/firebase';
+import './AddEvent.scss';
+import Button from '../../components/Button/Button';
+import "react-datepicker/dist/react-datepicker.css";
 
 interface IProps {
-	event: any;
 }
 
 class AddEvent extends Component<IProps> {
-	handleSubmit = () => {
-
+	handleSubmit = (val: any) => {
+		console.log(val);
+		firebase.database().ref('events').push(val);
 	};
 
 
@@ -17,27 +21,31 @@ class AddEvent extends Component<IProps> {
 			<div className="event">
 				<Form
 					onSubmit={this.handleSubmit}
-					render={({ handleSubmit, form }) => (
+					render={({ handleSubmit, form, submitting, pristine, values }) => (
 						<form onSubmit={handleSubmit}>
 							<div className="form-group">
+								<label>Event name</label>
 								<Field
-									name="title"
+									name="eventName"
 									component="input"
 									type="text"
-									placeholder="Tytuł posta"
 									className="form-control"
+									placeholder="Event name"
 								/>
 							</div>
 							<div className="form-group">
+								<label>Description</label>
 								<Field
-									name="content"
-									component="textarea"
-									type="text"
-									placeholder="Treść posta"
+									name="description"
+									component="input"
+									type="textarea"
 									className="form-control"
+									placeholder="Description"
 								/>
 							</div>
-							{/*<button type="submit" className="btn btn-primary" disabled={submitting || pristine}>Edytuj post</button>*/}
+							<Button text='Submit' typeName='primary'/>
+							<pre>{JSON.stringify(values)}</pre>
+
 						</form>
 					)}
 				/>

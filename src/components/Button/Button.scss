@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.btn {
+	display: inline-block;
+	border-radius: 28px;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 13px 63px;
+	transition: 0.5s all;
+
+	&:hover {
+		transition: 0.5s all;
+	}
+}
+
+.btn--primary {
+	background-color: #58AF9B;
+	color: $color-white;
+
+	&:hover {
+		background-color: #34695d;
+	}
+}

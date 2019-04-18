@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import Tile from '../../components/Tile/Tile';
 import "./EventsList.scss";
+import database, { firebase } from '../../firebase/firebase';
 
-class EventsList extends Component {
+interface IProps {
+	events: any;
+}
+
+
+class EventsList extends Component<IProps> {
 	events = [
 		{
 			"id": 1,
@@ -23,6 +29,25 @@ class EventsList extends Component {
 			"image": "/images/4dev.png"
 		},
 	];
+
+	componentWillMount() {
+		const wordRef = database.ref('events').limitToLast(10);
+		wordRef.on('value', (snapshot: any) => {
+			let events = snapshot.val();
+			let newState = [];
+
+			console.log(events);
+			for ( let event in events ) {
+				// newState.push({
+				// 	id: word,
+				// 	word: words[ word ].word,
+				// 	meaning: words[ word ].meaning
+				// });
+			}
+			// this.setState({ words: newState });
+		});
+	}
+
 
 	render() {
 		console.log(this.events);
