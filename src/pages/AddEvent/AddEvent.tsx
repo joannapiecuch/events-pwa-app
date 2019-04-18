@@ -3,21 +3,20 @@ import {Form, Field} from 'react-final-form';
 
 interface IProps {
 	event: any;
-	onSubmit: string;
 }
 
 class AddEvent extends Component<IProps> {
-	handleSubmit() {
+	handleSubmit = () => {
 
-	}
+	};
+
 
 	render() {
-		const {onSubmit} = this.props;
 
 		return (
 			<div className="event">
 				<Form
-					onSubmit={onSubmit}
+					onSubmit={this.handleSubmit}
 					render={({ handleSubmit, form }) => (
 						<form onSubmit={handleSubmit}>
 							<div className="form-group">
