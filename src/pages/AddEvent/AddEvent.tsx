@@ -3,20 +3,16 @@ import { Form, Field } from 'react-final-form';
 import { firebase } from '../../firebase/firebase';
 import './AddEvent.scss';
 import Button from '../../components/Button/Button';
-import "react-datepicker/dist/react-datepicker.css";
 
 interface IProps {
 }
 
 class AddEvent extends Component<IProps> {
 	handleSubmit = (val: any) => {
-		console.log(val);
 		firebase.database().ref('events').push(val);
 	};
 
-
 	render() {
-
 		return (
 			<div className="event">
 				<Form
@@ -45,7 +41,6 @@ class AddEvent extends Component<IProps> {
 							</div>
 							<Button text='Submit' typeName='primary'/>
 							<pre>{JSON.stringify(values)}</pre>
-
 						</form>
 					)}
 				/>

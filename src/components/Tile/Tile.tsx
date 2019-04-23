@@ -1,4 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+
 import './Tile.scss';
 
 interface IProps {
@@ -16,10 +19,18 @@ class Tile extends Component<IProps> {
 
 		return (
 			<div className="tile">
-				<div className="tile__image" style={imgUrl}></div>
+				<div className="tile__image" style={imgUrl}/>
 				<div className="tile__description">
-					<span className="text__header-4">{name}</span>
+					<span className="text__caption">{name}</span>
 					<span className="text__caption text--grey">{date}</span>
+					<div className="tile__button">
+						<Router>
+							<Link to="/details">
+								<span className="">Read more</span>
+								<FontAwesomeIcon icon='chevron-right'/>
+							</Link>
+						</Router>
+					</div>
 				</div>
 			</div>
 		)
