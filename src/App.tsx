@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import AddEvent from './pages/AddEvent/AddEvent';
 import Details from './pages/Details/Details';
 import EventsList from './pages/Events/EventsList';
+import './App.scss';
 
 library.add(faBars, faSearch, faPlus, faChevronRight);
 
@@ -15,11 +16,13 @@ class App extends Component {
 		return (
 			<main>
 				<Header/>
-				<Switch>
-					<Route exact path="/" component={EventsList}/>
-					<Route exact path="/new-event" component={AddEvent}/>
-					<Route exact path="/details" component={Details}/>
-				</Switch>
+				<div className="app__container">
+					<Switch>
+						<Route exact path="/" component={EventsList}/>
+						<Route exact path="/new-event" component={AddEvent}/>
+						<Route exact path="/details" component={Details}/>
+					</Switch>
+				</div>
 			</main>
 		);
 	}

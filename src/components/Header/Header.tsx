@@ -16,18 +16,6 @@ class Header extends Component {
 						<FontAwesomeIcon icon='plus'/>
 					</Link>
 				</Router>
-				{/*<Router>*/}
-					{/*<ul className='menu__list'>*/}
-						{/*<li className='menu__element'>*/}
-							{/*<Link to="/new-event">*/}
-								{/*<FontAwesomeIcon icon='plus'/>*/}
-							{/*</Link>*/}
-						{/*</li>*/}
-						{/*<li className='menu__element'>*/}
-							{/*<Link to="/">Events list</Link>*/}
-						{/*</li>*/}
-					{/*</ul>*/}
-				{/*</Router>*/}
 			</header>
 		)
 	}

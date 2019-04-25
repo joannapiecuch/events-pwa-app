@@ -1,16 +1,18 @@
 @import "../../styles/variables";
 
 .btn {
-	display: inline-block;
 	border-radius: 28px;
-	cursor: pointer;
 	font-size: 16px;
-	padding: 13px 63px;
+	padding: 7px 55px;
 	transition: 0.5s all;
 	border: none;
 
 	&:hover {
 		transition: 0.5s all;
+	}
+
+	&:disabled {
+		opacity: 0.45;
 	}
 }
 
@@ -20,5 +22,10 @@
 
 	&:hover {
 		background-color: $color-primary-2;
+		color: $color-white;
+	}
+
+	&:focus {
+		box-shadow: none;
 	}
 }

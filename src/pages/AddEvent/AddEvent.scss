@@ -1,17 +1,67 @@
+@import "../../styles/variables";
+
 .form-control {
-	display: block;
-	width: 100%;
-	height: calc(2.25rem + 2px);
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-radius: .25rem;
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+
+	&:focus {
+		outline: none;
+		border: 1px solid $color-primary;
+		box-shadow: none;
+	}
 }
 
-.form-group {
-	margin-bottom: 1rem;
+.form-control-image {
+	height: 100px;
+}
+
+.drag__field {
+	line-height: normal;
+	border: 1px solid #dfe1e9;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 140px;
+	text-align: center;
+	position: relative;
+
+	input {
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		outline: 0;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	&-text {
+		color: #495057;
+		font-size: 14px;
+
+		&--underline {
+			margin-left: 5px;
+			text-decoration: underline;
+			color: $color-primary
+		}
+	}
+
+	&-text--row {
+		flex-direction: row;
+	}
+}
+
+::placeholder {
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+}
+
+.react-datepicker__input-container input {
+	font-size: 12px;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range {
+	background-color: $color-primary!important;
 }

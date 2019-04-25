@@ -1,27 +1,28 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import './Button.scss';
+import ButtonLoader from '../ButtonLoader/ButtonLoader';
 
 interface IProps {
 	text: string;
 	typeName: string;
-	icon?: boolean;
-	submit?: () => {}
+	disabled: boolean;
+	isLoading: boolean;
 }
 
 class Button extends Component<IProps> {
 	render() {
-		const {text, typeName, icon, submit} = this.props;
+		const {text, typeName, disabled, isLoading} = this.props;
+		let loader;
+
+		if (isLoading) {
+			loader =  <ButtonLoader isLoading={isLoading} />;
+		}
 
 		return (
-			<button
-				className={`btn btn--${typeName}`}
-				onClick={submit}
-			>
+			<button className={`btn btn--${typeName}`} disabled={disabled}>
 				{text}
-				{icon ? <FontAwesomeIcon icon='arrow-right'/> : ''}
+				{loader}
 			</button>
-
 		)
 	}
 }

@@ -26,7 +26,7 @@ class Tile extends Component<IProps> {
 					<div className="tile__button">
 						<Router>
 							<Link to="/details">
-								<span className="">Read more</span>
+								<span>Read more</span>
 								<FontAwesomeIcon icon='chevron-right'/>
 							</Link>
 						</Router>
