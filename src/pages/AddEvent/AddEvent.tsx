@@ -26,7 +26,16 @@ class AddEvent extends Component<IProps, IState> {
 	}
 
 	handleSubmit = (val: any) => {
-		console.log(val);
+		// console.log(val.file);
+		// const storageRef = firebase.storage().ref();
+		// const mainImage = storageRef.child('test.jpg');
+		// mainImage.put(val.file).then(snapshot => mainImage.getDownloadURL()).then();
+
+		const storageRef = firebase.storage().ref();
+		const mountainsRef = storageRef.child('mountains.jpg');
+		// const file;
+		storageRef.child('images/mountains.jpg').put(mountainsRef);
+
 		firebase.database().ref('events').push(val);
 	};
 
