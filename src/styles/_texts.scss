@@ -13,6 +13,10 @@
 
 .text__caption {
   font-size: 14px;
+  font-weight: $weight__regular;
+}
+
+.text__caption--bold {
   font-weight: $weight__bold;
 }
 

@@ -20,7 +20,7 @@ class App extends Component {
 					<Switch>
 						<Route exact path="/" component={EventsList}/>
 						<Route exact path="/new-event" component={AddEvent}/>
-						<Route exact path="/details" component={Details}/>
+						<Route path="/details/:id" render={(props) => <Details {...props} />}/>
 					</Switch>
 				</div>
 			</main>

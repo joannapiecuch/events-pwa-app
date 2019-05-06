@@ -34,8 +34,8 @@ class AddEvent extends Component<IProps, IState> {
 		const storageRef = firebase.storage().ref();
 		const mountainsRef = storageRef.child('mountains.jpg');
 		// const blob = new Blob([evt.target.result], { type: "image/jpeg" });
-		storageRef.child('images/mountains.jpg').put('test.jpg');
-		firebase.storage.TaskState.RUNNING;
+		// storageRef.child('images/mountains.jpg').put('test.jpg');
+		// firebase.storage.TaskState.RUNNING;
 		firebase.database().ref('events').push(val);
 	};
 
@@ -66,6 +66,26 @@ class AddEvent extends Component<IProps, IState> {
 								</Field>
 							</div>
 							<div className="form-group">
+								<Field name="date" validate={required}>
+									{({input, meta}) => (
+										<div>
+											<input {...input} type="date" placeholder="Enter date" className="form-control"/>
+											{meta.error && meta.touched && <span>{meta.error}</span>}
+										</div>
+									)}
+								</Field>
+							</div>
+							<div className="form-group">
+								<Field name="time" validate={required}>
+									{({input, meta}) => (
+										<div>
+											<input {...input} type="time" placeholder="Enter date" className="form-control"/>
+											{meta.error && meta.touched && <span>{meta.error}</span>}
+										</div>
+									)}
+								</Field>
+							</div>
+							{/*<div className="form-group">*/}
 								{/*<Field name="date" validate={required}>*/}
 									{/*{({input, meta}) => (*/}
 										{/*<div>*/}
@@ -80,7 +100,7 @@ class AddEvent extends Component<IProps, IState> {
 										{/*</div>*/}
 									{/*)}*/}
 								{/*</Field>*/}
-							</div>
+							{/*</div>*/}
 							<div className="form-group">
 								<Field name="city" validate={required}>
 									{({input, meta}) => (
@@ -111,22 +131,22 @@ class AddEvent extends Component<IProps, IState> {
 									)}
 								</Field>
 							</div>
-							<div className="form-group">
-								<Field name="file" validate={required}>
-									{({input, meta}) => (
-										<div>
-											<div className="drag__field">
-												<input {...input} type="file" className="form-control form-control-image"/>
-												<span className="drag__field-text">
-													Drag and drop or
-													<span className="drag__field-text--underline">browse</span>
-												</span>
-											</div>
-											{/*{meta.error && meta.touched && <span>{meta.error}</span>}*/}
-										</div>
-									)}
-								</Field>
-							</div>
+							{/*<div className="form-group">*/}
+								{/*<Field name="file" validate={required}>*/}
+									{/*{({input, meta}) => (*/}
+										{/*<div>*/}
+											{/*<div className="drag__field">*/}
+												{/*<input {...input} type="file" className="form-control form-control-image"/>*/}
+												{/*<span className="drag__field-text">*/}
+													{/*Drag and drop or*/}
+													{/*<span className="drag__field-text--underline">browse</span>*/}
+												{/*</span>*/}
+											{/*</div>*/}
+											{/*/!*{meta.error && meta.touched && <span>{meta.error}</span>}*!/*/}
+										{/*</div>*/}
+									{/*)}*/}
+								{/*</Field>*/}
+							{/*</div>*/}
 							<Button text='Submit' typeName='primary' disabled={pristine || invalid} isLoading={true}/>
 						</form>
 					)}

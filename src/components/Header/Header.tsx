@@ -1,19 +1,18 @@
 import React from 'react';
 import { Component } from 'react';
-import './Header.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import './Header.scss';
 
 class Header extends Component {
 	render() {
 		return (
 			<header className='header'>
-				<a>
-					<FontAwesomeIcon icon='bars'/>
-				</a>
 				<Router>
+					{/*<img src="/images/back.svg" alt="Logo" />*/}
+					{/*<img src="/images/test.svg" alt="Logo" />*/}
 					<Link to="/new-event">
-						<FontAwesomeIcon icon='plus'/>
 					</Link>
 				</Router>
 			</header>

@@ -1,38 +1,36 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './Tile.scss';
+import { Event } from '../../pages/event';
 
 interface IProps {
-	name: string;
-	date: string;
-	image: string;
+	event: Event;
 }
 
 class Tile extends Component<IProps> {
 	render() {
-		const {name, date} = this.props;
+		const {event} = this.props;
+		const image='/images/event.png';
+
 		const imgUrl = {
-			backgroundImage: 'url(' + this.props.image + ')'
+			backgroundImage: 'url(' + image + ')'
 		};
 
 		return (
-			<div className="tile">
-				<div className="tile__image" style={imgUrl}/>
-				<div className="tile__description">
-					<span className="text__caption">{name}</span>
-					<span className="text__caption text--grey">{date}</span>
-					<div className="tile__button">
-						<Router>
-							<Link to="/details">
-								<span>Read more</span>
-								<FontAwesomeIcon icon='chevron-right'/>
-							</Link>
-						</Router>
+			<Link to={`/details/${event.id}`}>
+				<div className="tile">
+					<div className="tile__image" style={imgUrl}/>
+					<div className="tile__description">
+						<span className="text__caption text__caption--bold">{event.name}</span>
+						<div className="tile__details">
+							<span className="text__caption text--grey">{event.time}</span>
+							<span className="divided">-</span>
+							<span className="text__caption text--grey">{event.address} {event.city}</span>
+						</div>
 					</div>
 				</div>
-			</div>
+			</Link>
 		)
 	}
 }
