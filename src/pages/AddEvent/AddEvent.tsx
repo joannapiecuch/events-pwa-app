@@ -33,9 +33,9 @@ class AddEvent extends Component<IProps, IState> {
 
 		const storageRef = firebase.storage().ref();
 		const mountainsRef = storageRef.child('mountains.jpg');
-		// const file;
-		storageRef.child('images/mountains.jpg').put(mountainsRef);
-
+		// const blob = new Blob([evt.target.result], { type: "image/jpeg" });
+		storageRef.child('images/mountains.jpg').put('test.jpg');
+		firebase.storage.TaskState.RUNNING;
 		firebase.database().ref('events').push(val);
 	};
 
