@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.event__details-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  position: relative;
+}
+
+.event__details-box {
+  background-color: $color-white;
+  box-shadow: $shadow__box;
+  padding: 20px 14px;
+  margin: -15px 20px 10px;
+  border-radius: 4px;
+  position: relative;
+  height: calc(100vh - 200px);
+  overflow: scroll;
+}
+
+.title {
+  margin-bottom: 25px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: baseline;
+  padding: 7px 0;
+
+  .icon {
+    margin-right: 8px;
+    font-size: 14px;
+  }
+}
+
+.description {
+  margin-top: 15px;
+}
+
+.icon-back {
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  left: 15px;
+  font-size: 18px;
+}

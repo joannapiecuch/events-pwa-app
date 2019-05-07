@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import database from '../../firebase/firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Tile from '../../components/Tile/Tile';
-import './EventsList.scss';
 import { Event } from '../event';
+import './EventsList.scss';
 
 interface IProps {
 }
@@ -25,9 +27,9 @@ class EventsList extends Component<IProps, IState> {
 		return date != null ? new Date(date).getTime() : 0;
 	}
 
-	componentWillMount() {
-		const firebaseRef  = database.ref('events').limitToLast(10);
-		firebaseRef.on('value', (snapshot: any) => {
+	componentDidMount() {
+		database.ref('events')
+			.on('value', (snapshot: any) => {
 			let events = snapshot.val();
 			let newState = [];
 
@@ -47,19 +49,6 @@ class EventsList extends Component<IProps, IState> {
 		});
 	}
 
-	private prepareContacts() {
-		const result = [];
-		for ( const contact of this.state.events ) {
-			if ( result[contact.date] === undefined ) {
-				result[contact.date] = [];
-			}
-
-			console.log(result)
-			// result[contact.date].push(contact);
-		}
-	}
-
-
 	render() {
 		const listItems = this.state.events
 			.sort((a: Event, b: Event) => this.getTime(a.date) - this.getTime(b.date))
@@ -71,6 +60,9 @@ class EventsList extends Component<IProps, IState> {
 			);
 		return (
 			<div className="events">
+				<Link to="/new-event">
+					<FontAwesomeIcon icon="plus"/>
+				</Link>
 				<div className="events__list">
 					{this.state.events && this.state.events.length === 0 && <p>List is empty</p>}
 					<ul>{listItems}</ul>

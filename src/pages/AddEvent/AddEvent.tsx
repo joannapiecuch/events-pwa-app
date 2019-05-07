@@ -1,12 +1,17 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
-import { firebase } from '../../firebase/firebase';
-import './AddEvent.scss';
-import Button from '../../components/Button/Button';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from 'react-datepicker';
+
+import { firebase } from '../../firebase/firebase';
+import Button from '../../components/Button/Button';
+import './AddEvent.scss';
 
 interface IProps {
+	history: {
+		goBack: () => {}
+	};
 }
 
 interface IState {
@@ -26,31 +31,24 @@ class AddEvent extends Component<IProps, IState> {
 	}
 
 	handleSubmit = (val: any) => {
-		// console.log(val.file);
-		// const storageRef = firebase.storage().ref();
-		// const mainImage = storageRef.child('test.jpg');
-		// mainImage.put(val.file).then(snapshot => mainImage.getDownloadURL()).then();
-
-		const storageRef = firebase.storage().ref();
-		const mountainsRef = storageRef.child('mountains.jpg');
-		// const blob = new Blob([evt.target.result], { type: "image/jpeg" });
-		// storageRef.child('images/mountains.jpg').put('test.jpg');
-		// firebase.storage.TaskState.RUNNING;
 		firebase.database().ref('events').push(val);
 	};
 
 	handleChange(date: any) {
-		console.log(date);
 		this.setState({
 			startDate: date
 		});
 	}
 
 	render() {
+		console.log(this.props)
 		const required = (value: any) => (value ? undefined : 'This field is required');
 
 		return (
 			<div className="event">
+				<div onClick={this.props.history.goBack}>
+            <FontAwesomeIcon icon="arrow-left" />
+        </div>
 				<Form
 					onSubmit={this.handleSubmit}
 					render={({handleSubmit, form, submitting, pristine, invalid}) => (

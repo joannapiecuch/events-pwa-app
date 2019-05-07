@@ -1,12 +1,18 @@
 @import "../styles/variables";
 
 .text__header {
+  font-size: 24px;
+  font-weight: $weight__bold;
+  letter-spacing: 0.2px;
+}
+
+.text__header-2 {
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 0.2px;
 }
 
-.text-body {
+.text__body {
   font-size: 16px;
   font-weight: $weight__regular;
 }
@@ -23,3 +29,8 @@
 .text--grey {
   color: $color-grey;
 }
+
+.text--grey-2 {
+  color: $color-grey;
+}
+
