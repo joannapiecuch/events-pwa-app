@@ -1,7 +1,15 @@
 @import "../../styles/variables";
 
 .event {
-	padding: 10px;
+	padding: 20px;
+
+	&__header {
+		margin: 20px 0;
+	}
+
+	.btn {
+		width: 100%;
+	}
 }
 
 .form-control {
@@ -13,6 +21,12 @@
 		border: 1px solid $color-primary;
 		box-shadow: none;
 	}
+}
+
+.form-label {
+	margin-bottom: 0;
+	font-size: 12px;
+	font-weight: $weight__bold;
 }
 
 .form-control-image {

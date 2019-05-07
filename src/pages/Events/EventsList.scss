@@ -2,13 +2,60 @@
 
 .events {
   height: calc(100vh - 40px);
+  padding: 20px;
+  position: relative;
 
-  &__list {
+  &__header {
+    margin: 45px 10px 20px;
+  }
+
+  &__button {
+    box-shadow: $shadow__box;
+    background-color: $color-white;
     padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
+  a svg {
+    color: $color_primary;
   }
 
   ul {
     margin: 0;
     padding: 0;
+  }
+}
+
+.search {
+  margin-bottom: 20px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+
+  svg {
+    position: absolute;
+    color: #dadada;
+  }
+
+  .form-control-search {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #e1e2e1;
+    position: relative;
+    text-indent: 35px;
+    width: 100%;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #dadada;
   }
 }

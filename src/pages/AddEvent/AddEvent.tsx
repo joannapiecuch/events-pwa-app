@@ -4,6 +4,7 @@ import { Form, Field } from 'react-final-form';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
 
+// import { askForPermissionToReceiveNotifications, initializeFirebase } from '../../push-notifications';
 import { firebase } from '../../firebase/firebase';
 import Button from '../../components/Button/Button';
 import './AddEvent.scss';
@@ -41,7 +42,6 @@ class AddEvent extends Component<IProps, IState> {
 	}
 
 	render() {
-		console.log(this.props)
 		const required = (value: any) => (value ? undefined : 'This field is required');
 
 		return (
@@ -49,11 +49,17 @@ class AddEvent extends Component<IProps, IState> {
 				<div onClick={this.props.history.goBack}>
             <FontAwesomeIcon icon="arrow-left" />
         </div>
+				<div className="event__header">
+					<h1 className="text__header">Add event</h1>
+				</div>
 				<Form
 					onSubmit={this.handleSubmit}
-					render={({handleSubmit, form, submitting, pristine, invalid}) => (
-						<form onSubmit={handleSubmit}>
+					render={({handleSubmit, form, submitting, pristine, invalid, reset}) => (
+						<form
+							onSubmit={handleSubmit}
+						>
 							<div className="form-group">
+								<label className="form-label">Event name</label>
 								<Field name="name" validate={required}>
 									{({input, meta}) => (
 										<div>
@@ -64,6 +70,7 @@ class AddEvent extends Component<IProps, IState> {
 								</Field>
 							</div>
 							<div className="form-group">
+								<label className="form-label">Date</label>
 								<Field name="date" validate={required}>
 									{({input, meta}) => (
 										<div>
@@ -74,6 +81,7 @@ class AddEvent extends Component<IProps, IState> {
 								</Field>
 							</div>
 							<div className="form-group">
+								<label className="form-label">Time</label>
 								<Field name="time" validate={required}>
 									{({input, meta}) => (
 										<div>
@@ -100,6 +108,7 @@ class AddEvent extends Component<IProps, IState> {
 								{/*</Field>*/}
 							{/*</div>*/}
 							<div className="form-group">
+								<label className="form-label">City</label>
 								<Field name="city" validate={required}>
 									{({input, meta}) => (
 										<div>
@@ -110,6 +119,7 @@ class AddEvent extends Component<IProps, IState> {
 								</Field>
 							</div>
 							<div className="form-group">
+								<label className="form-label">Address</label>
 								<Field name="address" validate={required}>
 									{({input, meta}) => (
 										<div>
@@ -120,6 +130,7 @@ class AddEvent extends Component<IProps, IState> {
 								</Field>
 							</div>
 							<div className="form-group">
+								<label className="form-label">Details</label>
 								<Field name="description" validate={required}>
 									{({input, meta}) => (
 										<div>
