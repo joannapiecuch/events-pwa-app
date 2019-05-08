@@ -8,6 +8,7 @@ import DatePicker from 'react-datepicker';
 import { firebase } from '../../firebase/firebase';
 import Button from '../../components/Button/Button';
 import './AddEvent.scss';
+import { askForPermissionToReceiveNotifications, sendNotifications } from '../../push-notifications';
 
 interface IProps {
 	history: {
@@ -33,6 +34,7 @@ class AddEvent extends Component<IProps, IState> {
 
 	handleSubmit = (val: any) => {
 		firebase.database().ref('events').push(val);
+		// sendNotifications();
 	};
 
 	handleChange(date: any) {

@@ -5,7 +5,6 @@ export const config = {
 	authDomain: "https://pwa-app-asia.firebaseapp.com",
 	databaseURL: "https://pwa-app-asia.firebaseio.com/",
 	messagingSenderId: "394438070185",
-	storageBucket: 'pwa-app-asia.appspot.com'
 };
 
 firebase.initializeApp(config);

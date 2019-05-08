@@ -4,6 +4,7 @@ import database from '../../firebase/firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Tile from '../../components/Tile/Tile';
+import { getTokens } from '../../push-notifications';
 import { Event } from '../event';
 import './EventsList.scss';
 
@@ -70,6 +71,7 @@ class EventsList extends Component<IProps, IState> {
 				</Link>
 				<div className="events__header">
 					<h1 className="text__header">All events</h1>
+					<button onClick={getTokens}>Get</button>
 				</div>
 				<form className="search">
 					<FontAwesomeIcon icon="search"/>
